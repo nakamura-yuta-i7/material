@@ -5,6 +5,7 @@ import { TypographyComponent } from './typography/typography.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ButtonsIndicatorsComponent } from './buttons-indicators/buttons-indicators.component';
+import { PopupsModalsComponent } from './popups-modals/popups-modals.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'navigation', component: NavigationComponent },
   { path: 'layout', component: LayoutComponent },
   { path: 'buttons-indicators', component: ButtonsIndicatorsComponent },
+  { path: 'popups-modals', component: PopupsModalsComponent },
 ];
 
 @NgModule({

@@ -42,18 +42,10 @@ $config: mat-typography-config();
 // Override the typography in the core CSS.
 @include mat-core($custom-typography);
 
-// Custom header that uses only the Material `font-size` and `font-family`.
-.unicorn-header {
-  font-size: mat-font-size($config, headline);
-  font-family: mat-font-family($config);
-}
-
-.unicorn-title {
-  @include mat-typography-level-to-styles($config, title);
-}
 
 body, html {
   margin: 0;
+  font-family: Roboto, monospace;
 }
 body { padding: 20px; }
 

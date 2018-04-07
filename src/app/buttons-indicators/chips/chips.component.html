@@ -1,0 +1,84 @@
+
+<mat-card style="margin: 20px;">
+  <mat-chip-list>
+    <mat-chip>One fish</mat-chip>
+    <mat-chip>Two fish</mat-chip>
+    <mat-chip selected="true">Two fish (selected)</mat-chip>
+    <mat-chip color="primary" selected="true">Primary fish</mat-chip>
+    <mat-chip color="accent" selected="true">Accent fish</mat-chip>
+    <mat-chip color="primary" selected="false">Primary fish (no selected)</mat-chip>
+    <mat-chip color="accent" selected="false">Accent fish (no selected)</mat-chip>
+  </mat-chip-list>  
+  
+  <h2>Unstyled chips</h2>
+  <mat-chip>mat-chip</mat-chip>
+  <mat-basic-chip>mat-basic-chip</mat-basic-chip>
+  
+  <h2>Selection</h2>
+  <mat-chip-list selectable="true" (selectionChange)="alert('change!')">
+    <mat-chip>mat-chip 1</mat-chip>
+    <mat-chip selected>mat-chip 2</mat-chip>
+    <mat-chip selected>mat-chip 3</mat-chip>
+  </mat-chip-list>
+  
+  <mat-chip-list selectable="false">
+    <mat-chip>mat-chip 1</mat-chip>
+    <mat-chip selected>mat-chip 2</mat-chip>
+    <mat-chip selected>mat-chip 3</mat-chip>
+  </mat-chip-list>
+  
+  <h2>Disabled chips</h2>
+  <mat-chip-list>
+    <mat-chip>mat-chip 1</mat-chip>
+    <mat-chip disabled>mat-chip 2</mat-chip>
+    <mat-chip disabled>mat-chip 3</mat-chip>
+  </mat-chip-list>
+  
+  <h2>Chips with input</h2>
+  <mat-form-field class="demo-chip-list">
+    
+    <mat-chip-list #chipList>
+      
+      <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+               [removable]="removable" (remove)="remove(fruit)">
+        {{fruit.name}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      
+      <input placeholder="New fruit..."
+             [matChipInputFor]="chipList"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)" />
+             
+    </mat-chip-list>
+  </mat-form-field>
+  
+  
+  <h2>An example of chip input placed outside the chip-list element.</h2>
+  <mat-form-field>
+    <mat-chip-list #chipList2>
+      <mat-chip>Chip 1</mat-chip>
+      <mat-chip>Chip 2</mat-chip>
+    </mat-chip-list>
+    <input [matChipInputFor]="chipList2">
+  </mat-form-field>
+  
+  
+  <h2>Orientation</h2>
+  <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+    <mat-chip>Papadum</mat-chip>
+    <mat-chip>Naan</mat-chip>
+    <mat-chip>Dal</mat-chip>
+  </mat-chip-list>
+  
+  
+  <h2>Theming</h2>
+  <mat-chip-list>
+    <mat-chip color="accent" selected>mat-chip 1 (accent)</mat-chip>
+    <mat-chip color="primary" selected>mat-chip 2 (primary)</mat-chip>
+    <mat-chip color="warn" selected>mat-chip 3 (warn)</mat-chip>
+  </mat-chip-list>
+  
+</mat-card>
+

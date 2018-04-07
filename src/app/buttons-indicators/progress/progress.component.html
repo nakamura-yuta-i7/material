@@ -1,0 +1,99 @@
+<h2>Basic progress-spinner</h2>
+
+<h3>mat-progress-spinner</h3>
+<mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+<table class="docs-markdown-table">
+  <thead>
+    <tr class="docs-markdown-tr">
+      <th class="docs-markdown-th">Mode</th>
+      <th class="docs-markdown-th">Description</th>
+    </tr>
+  </thead>
+  <tbody class="docs-markdown-tbody">
+    <tr class="docs-markdown-tr">
+      <td class="docs-markdown-td">determinate</td>
+      <td class="docs-markdown-td">Standard progress indicator, fills from 0% to 100%</td>
+    </tr>
+    <tr class="docs-markdown-tr">
+      <td class="docs-markdown-td">indeterminate</td>
+      <td class="docs-markdown-td">Indicates that something is happening without conveying a discrete progress</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>mat-spinner</h3>
+<mat-spinner></mat-spinner>
+
+<h3>Control spinner</h3>
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Progress spinner configuration</h2>
+
+    <section class="example-section">
+      <label class="example-margin">Color:</label>
+      <mat-radio-group [(ngModel)]="color">
+        <mat-radio-button class="example-margin" value="primary">
+          Primary
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="accent">
+          Accent
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="warn">
+          Warn
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section">
+      <label class="example-margin">Mode:</label>
+      <mat-radio-group [(ngModel)]="mode">
+        <mat-radio-button class="example-margin" value="determinate">
+          Determinate
+        </mat-radio-button>
+        <mat-radio-button class="example-margin" value="indeterminate">
+          Indeterminate
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+    <section class="example-section" *ngIf="mode == 'determinate'">
+      <label class="example-margin">Progress:</label>
+      <mat-slider class="example-margin" [(ngModel)]="value"></mat-slider>
+    </section>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <h2 class="example-h2">Result</h2>
+
+    <mat-progress-spinner
+        class="example-margin"
+        [color]="color"
+        [mode]="mode"
+        [value]="value">
+    </mat-progress-spinner>
+  </mat-card-content>
+</mat-card>
+
+
+<h2>Progress bar</h2>
+
+<h3>Determinate</h3>
+<mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+
+<h3>Indeterminate</h3>
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+<h3>Buffer</h3>
+<mat-progress-bar mode="buffer"></mat-progress-bar>
+
+<h3>Query</h3>
+<mat-progress-bar mode="query"></mat-progress-bar>
+
+<h3>Theming</h3>
+
+<mat-progress-bar color="primary" mode="indeterminate"></mat-progress-bar>
+<hr>
+<mat-progress-bar color="accent" mode="buffer"></mat-progress-bar>
+<hr>
+<mat-progress-bar color="warn" mode="query"></mat-progress-bar>

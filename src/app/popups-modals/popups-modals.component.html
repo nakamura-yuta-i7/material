@@ -1,0 +1,47 @@
+<mat-tab-group>
+  <mat-tab label="MatDialog">
+    
+    <h2>Dialog Overview</h2>
+    <ol>
+      <li>
+        <mat-form-field>
+          <input matInput [(ngModel)]="name" placeholder="What's your name?">
+        </mat-form-field>
+      </li>
+      <li>
+        <button mat-raised-button (click)="openDialog()">Pick one</button>
+      </li>
+      <li *ngIf="animal">
+        You chose: <i>{{animal}}</i>
+      </li>
+    </ol>
+    
+  </mat-tab>
+  
+  <mat-tab label="MatSnackBar">
+    
+    <div style="padding: 20px;">
+        <mat-form-field>
+            <input matInput value="Disco party!" placeholder="Message" #message>
+          </mat-form-field>
+          
+          <mat-form-field>
+            <input matInput value="Dance" placeholder="Action" #action>
+          </mat-form-field>
+          
+          <button mat-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
+    </div>
+    
+    <button mat-button (click)="alert('アラートの表示はこんなのです')">alert</button>
+    
+  </mat-tab>
+  
+  <mat-tab label="Tooltip">
+    
+    <div style="padding: 20px;">
+        <span matTooltip="Tooltip!">I have a tooltip</span>
+    </div>
+    
+  </mat-tab>
+  
+</mat-tab-group>

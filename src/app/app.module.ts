@@ -10,6 +10,12 @@ import { TypographyComponent } from './typography/typography.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ButtonsIndicatorsComponent } from './buttons-indicators/buttons-indicators.component';
+import { ButtonsComponent } from './buttons-indicators/buttons/buttons.component';
+import { ButtonTogglesComponent } from './buttons-indicators/button-toggles/button-toggles.component';
+import { ChipsComponent } from './buttons-indicators/chips/chips.component';
+import { ProgressComponent } from './buttons-indicators/progress/progress.component';
+import { PopupsModalsComponent } from './popups-modals/popups-modals.component';
+import { DialogSampleComponent } from './popups-modals/dialog-sample/dialog-sample.component';
 
 
 @NgModule({
@@ -19,7 +25,14 @@ import { ButtonsIndicatorsComponent } from './buttons-indicators/buttons-indicat
     TypographyComponent,
     NavigationComponent,
     LayoutComponent,
-    ButtonsIndicatorsComponent
+    ButtonsIndicatorsComponent,
+    ButtonsComponent,
+    ButtonTogglesComponent,
+    ChipsComponent,
+    ProgressComponent,
+    PopupsModalsComponent,
+    DialogSampleComponent,
+    
   ],
   imports: [
     BrowserModule,
