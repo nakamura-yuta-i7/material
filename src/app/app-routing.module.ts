@@ -3,12 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TypographyComponent } from './typography/typography.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutComponent } from './layout/layout.component';
+import { ButtonsIndicatorsComponent } from './buttons-indicators/buttons-indicators.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'typography', component: TypographyComponent },
   { path: 'navigation', component: NavigationComponent },
+  { path: 'layout', component: LayoutComponent },
+  { path: 'buttons-indicators', component: ButtonsIndicatorsComponent },
 ];
 
 @NgModule({

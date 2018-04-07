@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TypographyComponent } from './typography/typography.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutComponent } from './layout/layout.component';
+import { ButtonsIndicatorsComponent } from './buttons-indicators/buttons-indicators.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { NavigationComponent } from './navigation/navigation.component';
     AppComponent,
     DashboardComponent,
     TypographyComponent,
-    NavigationComponent
+    NavigationComponent,
+    LayoutComponent,
+    ButtonsIndicatorsComponent
   ],
   imports: [
     BrowserModule,
