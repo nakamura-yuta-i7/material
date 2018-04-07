@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
+
+// All Properties
+// - display-4, display-3, display-2 and display-1 - Large, one-off headers, usually at the top of the page (e.g. a hero header).
+// - headline - Section heading corresponding to the <h1> tag.
+// - title - Section heading corresponding to the <h2> tag.
+// - subheading-2 - Section heading corresponding to the <h3> tag.
+// - subheading-1 - Section heading corresponding to the <h4> tag.
+// - body-1 - Base body text.
+// - body-2 - Bolder body text.
+// - caption - Smaller body and hint text.
+// - button - Buttons and anchors.
+// - input - Form input fields.
+
+// [mat-typography-level]
+// font-size, line-height, and font-weight.
+// Note: that the font-family has to be in quotes.
+$custom-typography: mat-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline: mat-typography-level(16px, 24px, 700),
+  $body-1: mat-typography-level(14px, 16px, 500),
+  $body-2: mat-typography-level(14px, 16px, 700),
+  $caption: mat-typography-level(10px, 12px, 500),
+  $button: mat-typography-level(12px, 14px, 500)
+);
+// Create a config with the default typography levels.
+$config: mat-typography-config();
+// $headline: mat-typography-level(32px, 48px, 700),
+// $body-1: mat-typography-level(16px, 24px, 500)
+
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Override the typography in the core CSS.
+@include mat-core($custom-typography);
+
+// Custom header that uses only the Material `font-size` and `font-family`.
+.unicorn-header {
+  font-size: mat-font-size($config, headline);
+  font-family: mat-font-family($config);
+}
+
+.unicorn-title {
+  @include mat-typography-level-to-styles($config, title);
+}
+
+body, html {
+  margin: 0;
+}
+body { padding: 20px; }
+
+.mat-tab-label {
+  background: #efefef !important;
+}

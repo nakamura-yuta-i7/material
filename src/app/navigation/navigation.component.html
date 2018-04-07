@@ -1,0 +1,257 @@
+<h1>Navigation</h1>
+
+<mat-tab-group>
+  <mat-tab label="Menu">
+
+      <h2>Menu</h2>
+
+      <mat-card>
+        <h3>Basic Menu</h3>
+        <button mat-button [matMenuTriggerFor]="menu1">Menu</button>
+        <mat-menu #menu1="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+        
+        <h3>Menu with icons</h3>
+        <button mat-icon-button [matMenuTriggerFor]="menu2">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu2="matMenu">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voicemail</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+        </mat-menu>
+        
+        <h3>Customizing menu position</h3>
+        <mat-menu #appMenu="matMenu" yPosition="above" xPosition="after">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Help</button>
+        </mat-menu>
+        
+        <button mat-icon-button [matMenuTriggerFor]="appMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        
+        
+        <h3>Nested menu</h3>
+        
+        <button mat-icon-button [matMenuTriggerFor]="rootMenu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        
+        <mat-menu #rootMenu="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="subMenu">Power</button>
+          <button mat-menu-item>System settings</button>
+        </mat-menu>
+        
+        <mat-menu #subMenu="matMenu">
+          <button mat-menu-item>Shut down</button>
+          <button mat-menu-item>Restart</button>
+          <button mat-menu-item>Hibernate</button>
+        </mat-menu>
+        
+        
+        <h3>Lazy rendering</h3>
+        <mat-menu #appMenu2="matMenu">
+          <ng-template matMenuContent>
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item>Help</button>
+          </ng-template>
+        </mat-menu>
+        
+        <button mat-icon-button [matMenuTriggerFor]="appMenu2">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </mat-card>
+      
+      
+    
+  </mat-tab>
+  <mat-tab label="Sidenav">
+    
+    
+      <h2>Sidenav</h2>
+
+      <mat-card>
+        <h3>mat-sidenav-container</h3>
+        <mat-sidenav-container class="example-container" *ngIf="shouldRun">
+          <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+          <mat-sidenav-content>Main content</mat-sidenav-content>
+        </mat-sidenav-container>
+        
+        <h3>mat-sidenav-container(position="end")</h3>
+        <mat-sidenav-container class="example-container" *ngIf="shouldRun">
+          <mat-sidenav opened mode="side">Start content</mat-sidenav>
+          <mat-sidenav opened mode="side" position="end">End content</mat-sidenav>
+          Implicit main content
+        </mat-sidenav-container>
+        
+        
+        
+        <h3>mat-drawer-container</h3>
+        <mat-drawer-container class="example-container">
+          <mat-drawer mode="side" opened="true">Drawer content</mat-drawer>
+          <mat-drawer-content>Main content</mat-drawer-content>
+        </mat-drawer-container>
+        
+        
+        <h3>Creates a layout with a left-positioned sidenav and explicit content.</h3>
+        <mat-sidenav-container>
+          <mat-sidenav>Start</mat-sidenav>
+          <mat-sidenav-content>Main</mat-sidenav-content>
+        </mat-sidenav-container>
+        
+        
+        <h3>Creates a layout with a left and right sidenav and implicit content.</h3>
+        <mat-sidenav-container>
+          <mat-sidenav>Start</mat-sidenav>
+          <mat-sidenav position="end">End</mat-sidenav>
+          <section>Main</section>
+        </mat-sidenav-container>
+        
+        
+        <h3>Sidenav open & close behavior</h3>
+        <mat-sidenav-container class="example-container">
+          <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+                        (closed)="events.push('close!')">
+            Sidenav content
+          </mat-sidenav>
+        
+          <mat-sidenav-content>
+            <p><mat-checkbox [(ngModel)]="opened">sidenav.opened</mat-checkbox></p>
+            <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
+            <p>Events:</p>
+            <div class="example-events">
+              <div *ngFor="let e of events">{{e}}</div>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+        
+        
+        
+        <h3>Sidenav with configurable mode</h3>
+        <mat-sidenav-container class="example-container" *ngIf="shouldRun">
+          <mat-sidenav #sidenav [mode]="mode.value">
+            <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+          </mat-sidenav>
+        
+          <mat-sidenav-content>
+            <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+            <p>
+              <mat-radio-group class="example-radio-group" [formControl]="mode">
+                <label>Mode:</label>
+                <mat-radio-button value="over">Over</mat-radio-button>
+                <mat-radio-button value="side">Side</mat-radio-button>
+                <mat-radio-button value="push">Push</mat-radio-button>
+              </mat-radio-group>
+            </p>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+        
+        
+        
+        <h3>Autosize sidenav</h3>
+        <mat-drawer-container class="example-container" autosize>
+          <mat-drawer #drawer class="example-sidenav" mode="side">
+            <p>Auto-resizing sidenav</p>
+            <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+            <button (click)="showFiller = !showFiller" mat-raised-button>
+              Toggle extra text
+            </button>
+          </mat-drawer>
+        
+          <div class="example-sidenav-content">
+            <button type="button" mat-button (click)="drawer.toggle()">
+              Toggle sidenav
+            </button>
+          </div>
+        
+        </mat-drawer-container>
+        
+        
+        
+        <h3>Responsive sidenav</h3>
+        <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+          
+          <mat-toolbar color="primary" class="example-toolbar">
+            <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+            <h1 class="example-app-name">Responsive App</h1>
+          </mat-toolbar>
+        
+          <mat-sidenav-container
+            class="example-sidenav-container"
+            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+            
+            <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                          [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                          
+              <mat-nav-list>
+                <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+              </mat-nav-list>
+              
+            </mat-sidenav>
+        
+            <mat-sidenav-content>
+              <p *ngFor="let content of fillerContent">{{content}}</p>
+            </mat-sidenav-content>
+            
+          </mat-sidenav-container>
+        </div>
+      </mat-card>
+      
+      
+    
+    
+  </mat-tab>
+  <mat-tab label="Toolbar">
+    
+    
+      <h2>Toolbar</h2>
+      <mat-card>
+        <mat-toolbar color="primary">
+          <mat-toolbar-row color="accent">
+            <span>Custom Toolbar</span>
+          </mat-toolbar-row>
+        
+          <mat-toolbar-row color="warn">
+            <span>Second Line</span>
+            <span class="example-spacer"></span>
+            <mat-icon class="example-icon">verified_user</mat-icon>
+          </mat-toolbar-row>
+        
+          <mat-toolbar-row>
+            <span>Third Line</span>
+            <span class="example-spacer" style="flex: 1 1 auto;"></span>
+            <mat-icon class="example-icon">favorite</mat-icon>
+            <mat-icon class="example-icon">delete</mat-icon>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        
+        
+        <mat-toolbar color="warn">
+          <span>Application Title</span>
+        
+          <!-- This fills the remaining space of the current row -->
+          <span class="example-fill-remaining-space"></span>
+        
+          <span>Right Aligned Text</span>
+        </mat-toolbar>
+          
+        
+      </mat-card>
+    
+    
+  </mat-tab>
+</mat-tab-group>
+
+
