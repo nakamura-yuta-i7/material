@@ -13,6 +13,9 @@ export class NavigationComponent implements OnInit {
   
   events = [];
   
+  opened = false;
+  showFiller = false;
+  
   mode = new FormControl('over');
   
   mobileQuery: MediaQueryList;
